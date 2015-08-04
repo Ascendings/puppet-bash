@@ -30,7 +30,7 @@ class bash (
 ) inherits ::bash::params {
 
   anchor { 'bash::begin': } ->
-  class { '::bash::install' } ->
+  class { '::bash::install': } ->
   class { '::bash::config': } ->
   anchor { 'bash::end': }
 
