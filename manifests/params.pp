@@ -4,10 +4,11 @@ class bash::params {
   $package_ensure          = installed
   $package_name            = 'bash'
   $package_provider        = $::osfamily ? {
-    'Debian' => 'apt',
-    'RedHat' => 'yum',
-    'Suse'   => 'zypper',
-    default  => false,
+    'Debian'  => 'apt',
+    'RedHat'  => 'yum',
+    'Suse'    => 'zypper',
+    'FreeBSD' => 'pkgng',
+    default   => false,
   }
   $package_source          = false
 
