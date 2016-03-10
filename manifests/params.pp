@@ -36,4 +36,9 @@ class bash::params {
   $system_profile_owner    = 'root'
   $system_profile_group    = 'root'
   $system_profile_mode     = '0644'
+
+  # Symlink for bash installation
+  $create_symlink          = false
+  $symlink_target          = '/usr/local/bin/bash'
+  $symlink_name            = '/bin/bash'
 }
