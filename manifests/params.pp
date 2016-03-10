@@ -1,5 +1,11 @@
 # See README.md for details.
 class bash::params {
+  # Root group defaults
+  $root_group              = $::osfamily ? {
+    'FreeBSD' => 'wheel',
+    default   => 'root',
+  }
+
   # Package config defaults
   $package_ensure          = installed
   $package_name            = 'bash'
@@ -26,16 +32,16 @@ class bash::params {
   }
   $system_bashrc_source    = false
   $system_bashrc_template  = false
-  $system_bashrc_owner     = 'root'
-  $system_bashrc_group     = 'root'
+  $system_bashrc_owner     = $root_group
+  $system_bashrc_group     = $root_group
   $system_bashrc_mode      = '0644'
 
   # Profile configuration
   $system_profile_path     = '/etc/profile'
   $system_profile_source   = false
   $system_profile_template = false
-  $system_profile_owner    = 'root'
-  $system_profile_group    = 'root'
+  $system_profile_owner    = $root_group
+  $system_profile_group    = $root_group
   $system_profile_mode     = '0644'
 
   # Symlink for bash installation
