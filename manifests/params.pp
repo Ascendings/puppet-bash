@@ -21,7 +21,7 @@ class bash::params {
   $system_bashrc_path      = $::osfamily ? {
     'Debian' => '/etc/bash.bashrc',
     'RedHat' => '/etc/bashrc',
-    default  => false,
+    default  => '/etc/bashrc',
   }
   $system_bashrc_source    = false
   $system_bashrc_template  = false
