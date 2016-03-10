@@ -1,5 +1,9 @@
 # See README.md for details.
 class bash::params {
+  # Root user defaults
+  $root_user               = $::osfamily ? {
+    default => 'root',
+  }
   # Root group defaults
   $root_group              = $::osfamily ? {
     'FreeBSD' => 'wheel',
@@ -32,7 +36,7 @@ class bash::params {
   }
   $system_bashrc_source    = false
   $system_bashrc_template  = false
-  $system_bashrc_owner     = $root_group
+  $system_bashrc_owner     = $root_user
   $system_bashrc_group     = $root_group
   $system_bashrc_mode      = '0644'
 
@@ -40,7 +44,7 @@ class bash::params {
   $system_profile_path     = '/etc/profile'
   $system_profile_source   = false
   $system_profile_template = false
-  $system_profile_owner    = $root_group
+  $system_profile_owner    = $root_user
   $system_profile_group    = $root_group
   $system_profile_mode     = '0644'
 
