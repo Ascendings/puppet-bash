@@ -10,24 +10,25 @@ class bash::params {
     default  => false,
   }
   $package_source          = false
-  
+
   # Bash completion package
   $completion_ensure       = installed
   $completion_name         = 'bash-completion'
   $completion_provider     = $package_provider
   $completion_source       = false
-  
+
   # Bash configuration
   $system_bashrc_path      = $::osfamily ? {
     'Debian' => '/etc/bash.bashrc',
     'RedHat' => '/etc/bashrc',
+    default  => false,
   }
   $system_bashrc_source    = false
   $system_bashrc_template  = false
   $system_bashrc_owner     = 'root'
   $system_bashrc_group     = 'root'
   $system_bashrc_mode      = '0644'
-  
+
   # Profile configuration
   $system_profile_path     = '/etc/profile'
   $system_profile_source   = false
